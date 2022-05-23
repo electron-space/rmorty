@@ -1,4 +1,3 @@
-import { GetStaticPaths } from 'next';
 import { GetCharacterResutls, Character } from '../../types/types';
 
 function CharPage({ character }: { character: Character }) {
