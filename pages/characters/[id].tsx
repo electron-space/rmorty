@@ -1,10 +1,17 @@
-import { Box, Container, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Button, Container, Grid, GridItem } from '@chakra-ui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { GetCharacterResutls, Character } from '../../types/types';
 
 function CharPage({ character }: { character: Character }) {
 	return (
-		<Container fontWeight='semibold' centerContent mt={4}>
+		<Container fontWeight='semibold' centerContent mt={20}>
+			<Button colorScheme='blue' mb={4}>
+				<Link href={'/'}>
+					<a>{'Home'}</a>
+				</Link>
+			</Button>
+
 			<Image
 				src={character.image}
 				alt={character.name}
@@ -14,9 +21,8 @@ function CharPage({ character }: { character: Character }) {
 
 			<Box mt={2}>{character.name}</Box>
 			<Grid>
-				{' '}
-				Info
-				<GridItem>
+				<Box>Info</Box>
+				<GridItem bg='teal.200'>
 					{'Status: '}
 					{character.status}
 				</GridItem>
@@ -28,7 +34,6 @@ function CharPage({ character }: { character: Character }) {
 					{'Location: '}
 					{character.location.name}
 				</GridItem>
-				{/* <GridItem>{character.map(() =>{})}</GridItem> */}
 			</Grid>
 		</Container>
 	);
@@ -51,7 +56,7 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
 		`https://rickandmortyapi.com/api/character/${params.id}`
 	);
 	const character = await res.json();
-	console.log(character);
+
 	return {
 		props: {
 			character,
