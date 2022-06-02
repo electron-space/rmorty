@@ -8,7 +8,7 @@ function CharPage({ character }: { character: Character }) {
 		<Container fontWeight='semibold' centerContent mt={20}>
 			<Button colorScheme='blue' mb={4}>
 				<Link href={'/'}>
-					<a>{'Home'}</a>
+					<a>{'Homepage'}</a>
 				</Link>
 			</Button>
 
