@@ -19,7 +19,7 @@ function CharPage({ character }: { character: Character }) {
 				height='200px'
 			/>
 
-			<Box mt={2}>{character.name}</Box>
+			<Box mt={3}>{character.name}</Box>
 			<Grid>
 				<Box>Info</Box>
 				<GridItem bg='teal.200'>
