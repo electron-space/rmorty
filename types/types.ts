@@ -1,13 +1,17 @@
+import { ReactNode } from 'react';
+
 export interface GetCharacterResutls {
 	info: Info;
 	results: Character[];
 }
 
 export type Info = {
+	children?: ReactNode;
 	count: number;
 	pages: number;
 	next: string;
 	prev: null;
+	data: {};
 };
 
 export interface Character {
