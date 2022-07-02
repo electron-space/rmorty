@@ -15,7 +15,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const Paginate: React.FunctionComponent<Info> = ({ data: Info }) => {
-	const { results } = data;
 	const [data, updateData] = useState();
+	// const results = data;
+
 	return null;
 };

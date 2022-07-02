@@ -1,43 +1,16 @@
-import { Box, Button, Container, Grid, GridItem } from '@chakra-ui/react';
+import {
+	Box,
+	Button,
+	Center,
+	Container,
+	Grid,
+	GridItem,
+	Link,
+} from '@chakra-ui/react';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 import Image from 'next/image';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { GetCharacterResutls, Character } from '../../types/types';
-
-function CharPage({ character }: { character: Character }) {
-	return (
-		<Container fontWeight='semibold' centerContent mt={20}>
-			<Button colorScheme='blue' mb={4}>
-				<Link href={'/'}>
-					<a>{'Homepage'}</a>
-				</Link>
-			</Button>
-
-			<Image
-				src={character.image}
-				alt={character.name}
-				width='200px'
-				height='200px'
-			/>
-
-			<Box mt={3}>{character.name}</Box>
-			<Grid>
-				<Box>Info</Box>
-				<GridItem bg='teal.200'>
-					{'Status: '}
-					{character.status}
-				</GridItem>
-				<GridItem>
-					{'Sex: '}
-					{character.gender}
-				</GridItem>
-				<GridItem>
-					{'Location: '}
-					{character.location.name}
-				</GridItem>
-			</Grid>
-		</Container>
-	);
-}
 
 export async function getStaticPaths() {
 	const res = await fetch('https://rickandmortyapi.com/api/character');
@@ -62,6 +35,53 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
 			character,
 		},
 	};
+}
+
+function CharPage({ character }: { character: Character }) {
+	console.log('data');
+	return (
+		<Container fontWeight='semibold' centerContent mt={20}>
+			<NextLink href={'/'} passHref>
+				<Link color='teal.600'>
+					Go Back Home <ExternalLinkIcon mx='2px' />
+				</Link>
+			</NextLink>
+
+			<Image
+				src={character.image}
+				alt={character.name}
+				width='200px'
+				height='200px'
+			/>
+
+			<Box mt={3}>{character.name}</Box>
+			<Grid>
+				<Center>
+					<Box p={10}>Info</Box>
+				</Center>
+				<GridItem bg='teal.200'>
+					{'Status: '}
+					{character.status}
+				</GridItem>
+				<GridItem>
+					{'Sex: '}
+					{character.gender}
+				</GridItem>
+				<GridItem>
+					{'Sex: '}
+					{character.species}
+				</GridItem>
+				<GridItem>
+					{'Location: '}
+					{character.location.name}
+				</GridItem>{' '}
+				<GridItem>
+					{'Appeared in: '}
+					{character.episode.length} {'episodes'}
+				</GridItem>
+			</Grid>
+		</Container>
+	);
 }
 
 export default CharPage;
