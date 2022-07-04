@@ -6,19 +6,17 @@ import {
 	SimpleGrid,
 	useColorMode,
 } from '@chakra-ui/react';
-import { IconButton } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import theme from '../theme';
 
-import { Character, GetCharacterResutls, Info } from '../types/types';
+import { Character, GetCharacterResults, Info } from '../types/types';
 
 export const getStaticProps: GetStaticProps = async (context) => {
-	const res = await fetch('https://rickandmortyapi.com/api/character');
-	const { results }: GetCharacterResutls = await res.json();
+	const res = await fetch('https://rickandmortyapi.com/api/character/');
+	const { results }: GetCharacterResults = await res.json();
 
 	return {
 		props: {

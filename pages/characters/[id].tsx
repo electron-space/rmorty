@@ -2,11 +2,11 @@ import { Box, Center, Container, Grid, GridItem, Link } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import { GetCharacterResutls, Character } from '../../types/types';
+import { GetCharacterResults, Character } from '../../types/types';
 
 export async function getStaticPaths() {
 	const res = await fetch('https://rickandmortyapi.com/api/character');
-	const { results }: GetCharacterResutls = await res.json();
+	const { results }: GetCharacterResults = await res.json();
 
 	const paths = results.map((character) => ({
 		params: {
