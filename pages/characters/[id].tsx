@@ -1,4 +1,12 @@
-import { Box, Center, Container, Grid, GridItem, Link } from '@chakra-ui/react';
+import {
+	Box,
+	Button,
+	Center,
+	Container,
+	Grid,
+	GridItem,
+	Link,
+} from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import Image from 'next/image';
 import NextLink from 'next/link';
