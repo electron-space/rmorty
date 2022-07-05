@@ -19,7 +19,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 const Home: NextPage<{ characters: Character[] }> = ({ characters }) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	const { colorMode, toggleColorMode } = useColorMode();
+=======
+>>>>>>> parent of 475330b (Implemented Dark Mode)
 =======
 >>>>>>> parent of 475330b (Implemented Dark Mode)
 	return (
