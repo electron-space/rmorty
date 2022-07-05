@@ -1,12 +1,13 @@
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
-	Button,
 	Center,
 	Container,
 	Heading,
+	IconButton,
 	SimpleGrid,
+	useColorMode,
 } from '@chakra-ui/react';
-import { useColorMode } from '@chakra-ui/color-mode';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -36,12 +37,18 @@ const Home: NextPage<{ characters: Character[] }> = ({ characters }) => {
 			</Head>
 
 			<Heading as='h1' size='4x1'>
-				<Center>R&M Status </Center>
+				<Center>Rick and Morty Status Page </Center>
 			</Heading>
 
-			<Button ml={4} onClick={toggleColorMode}>
-				{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-			</Button>
+			<IconButton
+				icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
+				variant='outline'
+				colorScheme='teal'
+				aria-label='Color mode switcher'
+				onClick={toggleColorMode}
+				ml={2}>
+				Switch Mode
+			</IconButton>
 
 			<SimpleGrid columns={[2, null, 3]} m={[2, 3]} gap='2' p={2}>
 				{characters.map((character: Character) => {
