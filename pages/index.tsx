@@ -1,4 +1,12 @@
-import { Center, Container, Heading, SimpleGrid } from '@chakra-ui/react';
+import {
+	Button,
+	Center,
+	Container,
+	Heading,
+	SimpleGrid,
+} from '@chakra-ui/react';
+import { useColorMode } from '@chakra-ui/color-mode';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -18,13 +26,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const Home: NextPage<{ characters: Character[] }> = ({ characters }) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
 	const { colorMode, toggleColorMode } = useColorMode();
-=======
->>>>>>> parent of 475330b (Implemented Dark Mode)
-=======
->>>>>>> parent of 475330b (Implemented Dark Mode)
+
 	return (
 		<div>
 			<Head>
@@ -36,9 +39,10 @@ const Home: NextPage<{ characters: Character[] }> = ({ characters }) => {
 				<Center>R&M Status </Center>
 			</Heading>
 
-			<IconButton mt={4} aria-label='Toggle Mode' onClick={toggleColorMode}>
+			<Button ml={4} onClick={toggleColorMode}>
 				{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-			</IconButton>
+			</Button>
+
 			<SimpleGrid columns={[2, null, 3]} m={[2, 3]} gap='2' p={2}>
 				{characters.map((character: Character) => {
 					return (

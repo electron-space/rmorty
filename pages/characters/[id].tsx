@@ -38,7 +38,6 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
 }
 
 function CharPage({ character }: { character: Character }) {
-	console.log('data');
 	return (
 		<Container fontWeight='semibold' centerContent mt={20}>
 			<NextLink href={'/'} passHref>
