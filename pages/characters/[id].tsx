@@ -51,7 +51,7 @@ function CharPage({ character }: { character: Character }) {
 				<Center>
 					<Box p={10}>Info</Box>
 				</Center>
-				<GridItem bg='teal.500'>
+				<GridItem bg='teal.200'>
 					{'Status: '}
 					{character.status}
 				</GridItem>
